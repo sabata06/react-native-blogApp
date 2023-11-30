@@ -31,9 +31,9 @@ export default function App() {
           <Stack.Screen
             name="PostDetail"
             component={PostDetailScreen}
-            options={({ navigation }) => ({
+            options={({ navigation, route }) => ({
               headerRight: () => (
-                <TouchableOpacity onPress={() => navigation.navigate("Edit")}>
+                <TouchableOpacity onPress={() => navigation.navigate("Edit", {id: route.params.id})}>
                   <AntDesign name="edit" size={24} color="black" />
                 </TouchableOpacity>
               ),
