@@ -10,7 +10,7 @@ import React, { useContext } from "react";
 import { Context } from "../context/BlogContext";
 import { MaterialIcons } from "@expo/vector-icons";
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   const { state, addBlogPost, deleteBlogPost } = useContext(Context);
   return (
     <View>
@@ -20,12 +20,18 @@ export default function HomeScreen() {
         data={state}
         renderItem={({ item }) => {
           return (
-            <View style={styles.row}>
-              <Text style={styles.title}>{item.title}</Text>
-              <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
-                <MaterialIcons name="delete-forever" size={24} color="black" />
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity onPress={() => navigation.navigate("PostDetail", {id: item.id})} >
+              <View style={styles.row}>
+                <Text style={styles.title}>{item.title}</Text>
+                <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+                  <MaterialIcons
+                    name="delete-forever"
+                    size={24}
+                    color="black"
+                  />
+                </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
           );
         }}
       />

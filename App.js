@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import CreateBlogScreen from "./screens/CreateBlogScreen";
 import { Provider } from "./context/BlogContext";
+import PostDetailScreen from "./screens/PostDetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ export default function App() {
         <Stack.Navigator screenOptions={{ headerTitle: "Blog App" }}>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Create" component={CreateBlogScreen} />
+          <Stack.Screen name="PostDetail" component={PostDetailScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
