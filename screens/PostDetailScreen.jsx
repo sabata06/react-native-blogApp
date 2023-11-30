@@ -9,6 +9,7 @@ export default function PostDetailScreen({route}) {
   return (
     <View>
       <Text>{blogPost.title}</Text>
+      <Text>{blogPost.content}</Text>
     </View>
   );
 }

@@ -9,7 +9,6 @@ import PostDetailScreen from "./screens/PostDetailScreen";
 import { AntDesign } from "@expo/vector-icons";
 import EditBlogScreen from "./screens/EditBlogScreen";
 
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -22,21 +21,25 @@ export default function App() {
             component={HomeScreen}
             options={({ navigation }) => ({
               headerRight: () => (
-                <TouchableOpacity onPress={() => navigation.navigate("Create")} >
+                <TouchableOpacity onPress={() => navigation.navigate("Create")}>
                   <AntDesign name="plus" size={24} color="black" />
                 </TouchableOpacity>
               ),
             })}
           />
           <Stack.Screen name="Create" component={CreateBlogScreen} />
-          <Stack.Screen name="PostDetail" component={PostDetailScreen} options={({ navigation }) => ({
+          <Stack.Screen
+            name="PostDetail"
+            component={PostDetailScreen}
+            options={({ navigation }) => ({
               headerRight: () => (
-                <TouchableOpacity onPress={() => navigation.navigate("Edit")} >
+                <TouchableOpacity onPress={() => navigation.navigate("Edit")}>
                   <AntDesign name="edit" size={24} color="black" />
                 </TouchableOpacity>
               ),
-            })} />
-          <Stack.Screen name="Edit" component={EditBlogScreen}  />
+            })}
+          />
+          <Stack.Screen name="Edit" component={EditBlogScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
